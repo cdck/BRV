@@ -2,7 +2,11 @@ apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
 apply plugin: 'kotlinx-serialization'
-
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 android {
     compileSdkVersion 33
 
@@ -18,7 +22,7 @@ android {
         applicationId "com.drake.brv.sample"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 1
+        versionCode 3
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.signed
@@ -85,5 +89,9 @@ dependencies {
     implementation 'com.github.liangjingkanji:Serialize:3.0.1'
     // debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
 
+    implementation 'com.alibaba:arouter-api:1.5.2'
+    kapt 'com.alibaba:arouter-compiler:1.5.2'
+
     implementation project(":brv")
+    runtimeOnly project(":mylibrary")
 }

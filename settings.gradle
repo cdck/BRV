@@ -1,1 +1,2 @@
 include ':brv', ':sample'
+include ':mylibrary'

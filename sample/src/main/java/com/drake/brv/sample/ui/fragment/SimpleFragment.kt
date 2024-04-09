@@ -1,6 +1,7 @@
 package com.drake.brv.sample.ui.fragment
 
 import android.widget.TextView
+import com.alibaba.android.arouter.launcher.ARouter
 import com.drake.brv.sample.R
 import com.drake.brv.sample.databinding.FragmentSimpleBinding
 import com.drake.brv.sample.model.SimpleModel
@@ -21,6 +22,8 @@ class SimpleFragment : EngineFragment<FragmentSimpleBinding>(R.layout.fragment_s
             }
             R.id.tv_simple.onClick {
                 toast("点击文本")
+                //startActivity(Intent(requireContext(), TestActivity::class.java))// 使用 implementation
+                ARouter.getInstance().build("/test/activity").navigation()// 使用 runtimeOnly
             }
         }.models = getData()
     }

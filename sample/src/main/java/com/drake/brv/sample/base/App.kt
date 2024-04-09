@@ -1,6 +1,7 @@
 package com.drake.brv.sample.base
 
 import android.app.Application
+import com.alibaba.android.arouter.launcher.ARouter
 import com.drake.brv.PageRefreshLayout
 import com.drake.brv.sample.BR
 import com.drake.brv.sample.R
@@ -19,7 +20,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
+        ARouter.init(this)
 
         // 初始化BindingAdapter的默认绑定ID
         BRV.modelId = BR.m
